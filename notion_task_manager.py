@@ -74,44 +74,21 @@ class MyNotionTable:
             self.check_for_tasks_status()
             time.sleep(5)
 
-    def real_run(self):
-        print(f"this items in dict - {self.current_tasks.keys()}")
-        self.check_for_tasks_status()
-
-
-
-def Main_Task():
-    while True:
-        try:
-            print("start new session")
-            try:
-                engine = create_engine('mysql+mysqlconnector://itda:28031994@127.0.0.1:3306/testdatabase')
-                Base.metadata.create_all(engine)
-                Session = sessionmaker(bind=engine)
-                session = Session()
-            except:
-                print("error2")
-            TOKEN_V_2 = 'e82f30cd27076b422ce1adab0767972fa13a3f98ae28884948af098d7c6195d1096a006c2c5ee0e719aaf79cba6f7c8ceae15e2ffc98abde445f8d4670b666d1018c2a268c91a62ec08feeaa145d'
-            url = 'https://www.notion.so/1d0f718f0c814a9099bd428c55c2fa1f?v=33bb491fbfc644f98c89e64cef1c541a'
-            table = MyNotionTable(token=TOKEN_V_2, page_url=url, session=session)
-            return table.real_run
-        except:
-            pass
 
 
 if __name__ == '__main__':
     while True:
         print("start new session")
         try:
-            engine = create_engine('mysql+mysqlconnector://itda:28031994@127.0.0.1:3306/testdatabase')
+            engine = create_engine('mysql+mysqlconnector://username: password@ip: port/db name')
             Base.metadata.create_all(engine)
             Session = sessionmaker(bind=engine)
             session = Session()
         except:
             print("error2")
         print("start withh token")
-        TOKEN_V_2 = 'e82f30cd27076b422ce1adab0767972fa13a3f98ae28884948af098d7c6195d1096a006c2c5ee0e719aaf79cba6f7c8ceae15e2ffc98abde445f8d4670b666d1018c2a268c91a62ec08feeaa145d'
-        url = 'https://www.notion.so/1d0f718f0c814a9099bd428c55c2fa1f?v=33bb491fbfc644f98c89e64cef1c541a'
+        TOKEN_V_2 = 'your token'
+        url = 'url'
         print("start withh table")
         table = MyNotionTable(token=TOKEN_V_2, page_url=url, session=session)
         print("start table.run")
